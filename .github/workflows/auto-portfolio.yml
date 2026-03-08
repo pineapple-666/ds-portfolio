@@ -1,0 +1,27 @@
+name: Auto Portfolio Update
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  test-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Create test file
+        run: echo "Test from GitHub Actions" > test.txt
+
+      - name: Commit and push
+        run: |
+          git config --global user.name "Actions"
+          git config --global user.email "actions@github.com"
+          git add test.txt
+          git commit -m "Test workflow"
+          git push origin master
