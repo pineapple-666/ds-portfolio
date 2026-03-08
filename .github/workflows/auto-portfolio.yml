@@ -15,10 +15,28 @@ jobs:
         with:
           ref: master
 
+      # 第一步：把两个密钥传给机器人（核心修改）
+      - name: Set up environment variables
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+        run: |
+          # 验证密钥是否成功传递（可选，可删除）
+          echo "GH_PAT is set: ${{ secrets.GH_PAT != '' }}"
+          echo "KAGGLE_API_TOKEN is set: ${{ secrets.KAGGLE_API_TOKEN != '' }}"
+
       - name: Create test file
+        # 这里也加上环境变量，确保后续步骤能拿到
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: echo "Test from GitHub Actions" > test.txt
 
       - name: Commit and push
+        # 提交代码步骤也加上，保证全程能访问密钥
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
           git config --global user.name "Actions"
           git config --global user.email "actions@github.com"
