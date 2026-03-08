@@ -1,0 +1,9 @@
+feature,importance
+income,0.312
+total_purchases,0.228
+avg_order_value,0.158
+tenure_months,0.118
+is_premium_member,0.092
+days_since_last_purchase,0.055
+age,0.025
+num_categories_bought,0.012
