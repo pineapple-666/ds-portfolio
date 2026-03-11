@@ -1,0 +1,16 @@
+model,metric,value
+Logistic Regression,accuracy,0.8200
+Logistic Regression,precision,0.7100
+Logistic Regression,recall,0.6800
+Logistic Regression,f1_score,0.6900
+Logistic Regression,roc_auc,0.8500
+Random Forest,accuracy,0.8700
+Random Forest,precision,0.7800
+Random Forest,recall,0.7400
+Random Forest,f1_score,0.7600
+Random Forest,roc_auc,0.9100
+XGBoost,accuracy,0.8800
+XGBoost,precision,0.7900
+XGBoost,recall,0.7600
+XGBoost,f1_score,0.7700
+XGBoost,roc_auc,0.9200
